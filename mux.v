@@ -2,20 +2,6 @@
 // 32 by 1 mux
 // some code recycled from lab1 "FourInMux"
 
-/// use this one to test using mux.t.v testbench! 
-module mux4to1by1
-(
-output      out,
-input[2:0]  address,
-input[3:0] inputs
-);
-
-wire[3:0] inputsofmux;
-wire       outputofmux;
-assign outputofmux=inputsofmux[address];
-endmodule
-
-// check this one after using mux.t.v to test that the idea works 
 module mux32to1by1
 (
 output      out,
@@ -31,30 +17,51 @@ assign outputofmux=inputsofmux[address];
 endmodule
 
 
-
-/*
-module FourInMux // this module is a four input mux that takes in four inputs (in0, in1, in2, and in3) and uses switches S0 and S1 to pick the value for out
+module mux32to1by32
 (
-    output out,
-    input S0, S1,
-    input in0, in1, in2, in3
+output[31:0]  out,
+input[4:0]    address,
+input[31:0]   input0, input1, input2, ..., input31
 );
-    wire nS0; 
-    wire nS1; 
 
-    wire out0; 
-    wire out1; 
-    wire out2; 
-    wire out3; 
+  wire[31:0] mux[31:0];			// Create a 2D array of wires
+assign mux[0] = input0;		// Connect the sources of the array
+assign mux[1] = input1;
+assign mux[2] = input2;
+assign mux[3] = input3;
+assign mux[4] = input4;
+assign mux[5] = input5;
+assign mux[6] = input6;
+assign mux[7] = input7;
+assign mux[8] = input8;
+assign mux[9] = input9;
+assign mux[10] = input10;
+assign mux[11] = input11;
+assign mux[12] = input12;
+assign mux[13] = input13;
+assign mux[14] = input14;
+assign mux[15] = input15;
+assign mux[16] = input16;
+assign mux[17] = input17;
+assign mux[18] = input18;
+assign mux[19] = input19;
+assign mux[20] = input20;
+assign mux[21] = input21;
+assign mux[22] = input22;
+assign mux[23] = input23;
+assign mux[24] = input24;
+assign mux[25] = input25;
+assign mux[26] = input26;
+assign mux[27] = input27;
+assign mux[28] = input28;
+assign mux[29] = input29;
+assign mux[30] = input30;
+assign mux[31] = input31;
 
-    `NOT S0inv(nS0, S0);
-    `NOT S1inv(nS1, S1);
-    `NAND n0(out0, nS0, nS1, in0);
-    `NAND n1(out1, S0,  nS1, in1);
-    `NAND n2(out2, nS0, S1, in2);
-    `NAND n3(out3, S0,  S1, in3);
 
-    `NAND addthem(out, out0, out1, out2, out3);
+assign out = mux[address];	// Connect the output of the array
 endmodule
 
-*/ 
+ 
+
+

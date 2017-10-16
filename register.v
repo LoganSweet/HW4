@@ -54,7 +54,7 @@ genvar i;
 generate 
 	for (i=1; i<size; i=i+1)
 		begin: reg32
-			register makereg32(q[i], d[i], wrenable, clk); 
+			register makereg32(0, d[i], wrenable, clk); 
 		end        
 endgenerate
 
