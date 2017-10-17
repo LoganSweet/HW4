@@ -22,9 +22,44 @@ input		RegWrite,	// Enable writing of register when High
 input		Clk		// Clock (Positive Edge Triggered)
 );
 
-decoder1to32 decodetime(DecodeOut, RegWrite, WriteRegister);
+wire[31:0] DecodeOut; 
+wire[31:0] ROut_0;
+wire[31:0] ROut_1; 
+wire[31:0] ROut_2; 
+wire[31:0] ROut_3; 
+wire[31:0] ROut_4; 
+wire[31:0] ROut_5; 
+wire[31:0] ROut_6; 
+wire[31:0] ROut_7; 
+wire[31:0] ROut_8; 
+wire[31:0] ROut_9; 
+wire[31:0] ROut_10; 
+wire[31:0] ROut_11; 
+wire[31:0] ROut_12; 
+wire[31:0] ROut_13; 
+wire[31:0] ROut_14; 
+wire[31:0] ROut_15; 
+wire[31:0] ROut_16; 
+wire[31:0] ROut_17; 
+wire[31:0] ROut_18; 
+wire[31:0] ROut_19; 
+wire[31:0] ROut_20; 
+wire[31:0] ROut_21; 
+wire[31:0] ROut_22; 
+wire[31:0] ROut_23; 
+wire[31:0] ROut_24; 
+wire[31:0] ROut_25; 
+wire[31:0] ROut_26; 
+wire[31:0] ROut_27; 
+wire[31:0] ROut_28; 
+wire[31:0] ROut_29; 
+wire[31:0] ROut_30; 
+wire[31:0] ROut_31; 
+
+decoder1to32 decodetim(DecodeOut, RegWrite, WriteRegister);
 
 register32zero r0(ROut_0, WriteData, DecodeOut[0], Clk);
+//register32 r0(ROut_0,  WriteData, DecodeOut[0], Clk); 
 register32 r1(ROut_1,  WriteData, DecodeOut[1], Clk); 
 register32 r2(ROut_2,  WriteData, DecodeOut[2], Clk); 
 register32 r3(ROut_3,  WriteData, DecodeOut[3], Clk); 
@@ -57,13 +92,15 @@ register32 r29(ROut_29, WriteData, DecodeOut[29], Clk);
 register32 r30(ROut_30, WriteData, DecodeOut[30], Clk); 
 register32 r31(ROut_31, WriteData, DecodeOut[31], Clk); 
 
-mux32to1by32 M1(XX, ReadRegister1, DecodeOut[0], DecodeOut[1], DecodeOut[2], DecodeOut[3], DecodeOut[4], DecodeOut[5], DecodeOut[6], DecodeOut[7], DecodeOut[8], DecodeOut[9], DecodeOut[10], DecodeOut[11], DecodeOut[12], DecodeOut[13], DecodeOut[14], DecodeOut[15], DecodeOut[16], DecodeOut[17], DecodeOut[18], DecodeOut[19], DecodeOut[20], DecodeOut[21], DecodeOut[22], DecodeOut[23], DecodeOut[24], DecodeOut[25], DecodeOut[26], DecodeOut[27], DecodeOut[28], DecodeOut[29], DecodeOut[30], DecodeOut[31]); 
+mux32to1by32 M1(ReadData1, ReadRegister1, ROut_0, ROut_1, ROut_2, ROut_3, ROut_4, ROut_5, ROut_6, ROut_7, ROut_8, ROut_9, ROut_10, ROut_11, ROut_12, ROut_13, ROut_14, ROut_15, ROut_16, ROut_17, ROut_18, ROut_19, ROut_20, ROut_21, ROut_22, ROut_23, ROut_24, ROut_25, ROut_26, ROut_27, ROut_28, ROut_29, ROut_30, ROut_31); 
 
-mux32to1by32 M2(ZZ, ReadRegister2, DecodeOut[0], DecodeOut[1], DecodeOut[2], DecodeOut[3], DecodeOut[4], DecodeOut[5], DecodeOut[6], DecodeOut[7], DecodeOut[8], DecodeOut[9], DecodeOut[10], DecodeOut[11], DecodeOut[12], DecodeOut[13], DecodeOut[14], DecodeOut[15], DecodeOut[16], DecodeOut[17], DecodeOut[18], DecodeOut[19], DecodeOut[20], DecodeOut[21], DecodeOut[22], DecodeOut[23], DecodeOut[24], DecodeOut[25], DecodeOut[26], DecodeOut[27], DecodeOut[28], DecodeOut[29], DecodeOut[30], DecodeOut[31]); 
+mux32to1by32 M2(ReadData2, ReadRegister2, ROut_0, ROut_1, ROut_2, ROut_3, ROut_4, ROut_5, ROut_6, ROut_7, ROut_8, ROut_9, ROut_10, ROut_11, ROut_12, ROut_13, ROut_14, ROut_15, ROut_16, ROut_17, ROut_18, ROut_19, ROut_20, ROut_21, ROut_22, ROut_23, ROut_24, ROut_25, ROut_26, ROut_27, ROut_28, ROut_29, ROut_30, ROut_31); 
 
 endmodule
 
-//assign ReadData1 = 42; 
-//assign ReadData2 = 42; 
+//module quicktest();
+//reg[31:0] DecodeOut; 
 
-
+//initial begin 
+//end 
+//endmodule

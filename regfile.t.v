@@ -17,6 +17,7 @@ module hw4testbenchharness();
   wire		Clk;		// Clock (Positive Edge Triggered)
 
   reg		begintest;	// Set High to begin testing register file
+  wire           endtest;
   wire		dutpassed;	// Indicates whether register file passed tests
 
   // Instantiate the register file being tested.  DUT = Device Under Test
@@ -48,12 +49,21 @@ module hw4testbenchharness();
     .Clk(Clk)
   );
 
+
+  //initial Clk = 0; 
+  //always #10 Clk != Clk; 
   // Test harness asserts 'begintest' for 1000 time steps, starting at time 10
   initial begin
+
+	$dumpfile("Ass3.vcd"); 
+	$dumpvars();
+
     begintest=0;
     #10;
     begintest=1;
     #1000;
+
+	$finish; 
   end
 
   // Display test results ('dutpassed' signal) once 'endtest' goes high
@@ -95,6 +105,9 @@ output reg		Clk
 
   // Initialize register driver signals
   initial begin
+
+    $dumpfile("ass.vcd");
+    $dumpvars();
     WriteData=32'd0;
     ReadRegister1=5'd0;
     ReadRegister2=5'd0;
