@@ -15,7 +15,6 @@ input		clk
     end
 endmodule
 
-
 // 32-bit D Flip-Flop with enable
 // Positive edge triggered
 module register32
@@ -31,13 +30,10 @@ generate
 	for (i=0; i<size; i=i+1)
 		begin: reg32
 			register makereg32(q[i], d[i], wrenable, clk); 
-		end        
+	end        
 endgenerate
-
 //register r0(q[0], d[0], wrenable, clk);
 endmodule
-
-
 
 module register32zero
 (
@@ -48,7 +44,6 @@ input				clk
 );
 
 register r0(q[0], d[0], wrenable, clk);
-
 parameter size = 32; 
 genvar i; 
 generate 
@@ -57,9 +52,7 @@ generate
 			register makereg32(0, d[i], wrenable, clk); 
 		end        
 endgenerate
-
 //register r0(q[0], d[0], wrenable, clk);
-
 endmodule
 
 
