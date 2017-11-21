@@ -21,8 +21,8 @@ module register32
 (
 output reg [31:0]	q,
 input      [31:0]	d,
-input				wrenable,
-input				clk
+input		wrenable,
+input		clk
 );
 genvar i; 
 generate 

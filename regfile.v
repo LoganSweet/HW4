@@ -98,9 +98,3 @@ mux32to1by32 M2(ReadData2, ReadRegister2, ROut_0, ROut_1, ROut_2, ROut_3, ROut_4
 
 endmodule
 
-//module quicktest();
-//reg[31:0] DecodeOut; 
-
-//initial begin 
-//end 
-//endmodule

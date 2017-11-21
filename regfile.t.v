@@ -55,7 +55,7 @@ module hw4testbenchharness();
   // Test harness asserts 'begintest' for 1000 time steps, starting at time 10
   initial begin
 
-	$dumpfile("Ass3.vcd"); 
+	$dumpfile("A3.vcd"); 
 	$dumpvars();
 
     begintest=0;
@@ -149,9 +149,24 @@ output reg		Clk
   #5 Clk=1; #5 Clk=0;
 
   if((ReadData1 != 15) || (ReadData2 != 15)) begin
-    dutpassed = 0;
+    dutpassed = 0; 
     $display("Test Case 2 Failed");
   end
+
+  // Test Case 3: 
+  // Write Enable is broken / ignored – Register is always written to. 
+  WriteRegister = 5'd2;
+  WriteData = 32'd16;
+  RegWrite = 0;
+  ReadRegister1 = 5'd2;
+  ReadRegister2 = 5'd2;
+  #5 Clk=1; #5 Clk=0;
+
+  if((ReadData1 != 16) || (ReadData2 != 16)) begin
+    dutpassed = 0; 
+    $display("Test Case 3 Failed");
+  end
+
 
 
   // All done!  Wait a moment and signal test completion.

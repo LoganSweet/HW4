@@ -1,6 +1,6 @@
 // Deliverable 4 
 // 32 by 1 mux
-// some code recycled from lab1 "FourInMux"
+// some of this code recycled from lab1 "FourInMux"
 
 module mux32to1by1
 (
@@ -11,10 +11,9 @@ input[31:0] inputs
 
 wire[31:0] inputsofmux;
 wire       outputofmux;
-
 assign outputofmux=inputsofmux[address];
-
 endmodule
+
 
 
 module mux32to1by32
@@ -24,7 +23,7 @@ input[4:0]    address,
 input[31:0]   input0, input1, input2, input3, input4, input5, input6, input7, input8, input9, input10, input11, input12, input13, input14, input15, input16, input17, input18, input19, input20, input21, input22, input23, input24, input25, input26, input27, input28, input29, input30, input31
 );
 
-  wire[31:0] mux[31:0];			// Create a 2D array of wires
+wire[31:0] mux[31:0];			// Create a 2D array of wires
 assign mux[0] = input0;		// Connect the sources of the array
 assign mux[1] = input1;
 assign mux[2] = input2;

@@ -1,5 +1,6 @@
 `include "regfile.v"
 
+
 module hw4testbench
 (
 // Test bench driver signal connections
@@ -24,7 +25,6 @@ output reg		Clk
     $dumpvars();
 	
 	$display("running");
-
 
 end
 endmodule
